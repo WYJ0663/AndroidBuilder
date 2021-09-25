@@ -1,0 +1,38 @@
+//apply plugin: 'java-library'
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation project(':builder-lib')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+//jar  { //不打入依赖
+shadowJar  {
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Main-Class': 'com.qiqi.Main'
+    }
+
+}
+
+task buildJar(type: Copy) {
+    def fromFile = new File(project.buildDir.getPath(), "libs/builder-cli-all.jar").getPath()
+    def intoFile = new File(project.getRootDir(), "/build_tool/lib").getPath()
+    from fromFile
+    into intoFile
+    rename 'builder-cli-all.jar', 'hot.jar'
+}
+
+buildJar.dependsOn(shadowJar)
+

@@ -1,0 +1,4 @@
+// buildsrc 需要这个文件
+
+include ':builder-lib'
+project(':builder-lib').projectDir = new File('../builder-lib')

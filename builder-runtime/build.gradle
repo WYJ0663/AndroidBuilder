@@ -1,0 +1,110 @@
+apply plugin: 'maven'
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    aidlPackageWhiteList "com/hotpatch/server/IStart.aidl","com/hotpatch/server/IStart.aidl"
+}
+//
+dependencies {
+}
+
+//打包
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = "com.qiqi.hack"
+            pom.artifactId = "aar"
+            pom.version = RUNTIME_VERSION
+            repository(url: uri('c:\\qiqi\\maven')) //定义本地maven仓库的地址
+        }
+    }
+}
+
+//task mycompile {
+//    compile()
+//}
+//
+//
+//public String compile() {
+//    String classesPath = project.getProjectDir().absolutePath + "\\out\\classes"
+//    String javaPath = project.getProjectDir().absolutePath + "\\src\\main\\java"
+//
+//    FileUtils.deleteDir(new File(classesPath))
+//    FileUtils.ensumeDir(new File(classesPath))
+//
+//    Log.Stute("! " + javaPath);
+//
+//    List<String> cmdArgs = new ArrayList<>()
+//    cmdArgs.add(BuildUtils.getJavacCmdPath())
+//    cmdArgs.add("-encoding")
+//    cmdArgs.add("UTF-8")
+//    cmdArgs.add("-g")
+//    cmdArgs.add("-target")
+//    cmdArgs.add("1.7")
+//    cmdArgs.add("-source")
+//    cmdArgs.add("1.7")
+//    String androidJar = BuildUtils.getAndroidJarPath(project)
+//    cmdArgs.add("-cp")
+//    cmdArgs.add(androidJar)
+//    cmdArgs.add("-d")
+//    cmdArgs.add(classesPath)
+//    cmdArgs.add(javaPath + "\\com\\hotpatch\\hack\\*.java")
+//
+//    CmdUtil.cmd(project, cmdArgs)
+//
+//    pack2Jar()
+//
+//
+//}
+//
+//public void pack2Jar() {
+//    String classesPath = project.getProjectDir().absolutePath + "\\out\\classes"
+//    String destPath = project.getProjectDir().absolutePath + "\\out\\hot_hack.jar"
+//    FileUtils.deleteFile(destPath)
+//
+//    com.qiqi.my.dex.JarZipUtil.zipJar(classesPath, destPath)
+//}
+
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: "http://IP_Address:PORT/nexus/content/repositories/snapshots/") {
+//                authentication(userName: "账号", password: "密码")
+//            }
+//            pom.project {
+//                groupId = "com.android" //包名
+//                artifactId = "utils"             //名称
+//                version = "0.0.1-SNAPSHOT"  //版本
+//
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+
+
+

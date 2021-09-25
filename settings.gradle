@@ -1,0 +1,10 @@
+include ':builder-sample-android', ':builder-sample-android:androidcommon'
+include ':builder-runtime'//打包方法 gradlew.bat :builder-runtime:uploadArchives
+//include ':builder-gradle-plugin'//打包方法 gradlew.bat :builder-gradle-plugin:uploadArchives
+//include ':buildsrc'//打包方法 gradlew.bat :buildsrc:uploadArchives
+include ':builder-lib'
+include ':builder-cli' // 打包方法 gradlew.bat :builder-cli:buildJar
+include ':builder-studio-plugin' // 打包方法 gradlew.bat :builder-studio-plugin:uploadArchives
+
+
+

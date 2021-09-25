@@ -1,0 +1,70 @@
+apply plugin: 'maven'
+apply plugin: 'kotlin'
+dependencies {
+    implementation gradleApi()//gradle sdk
+//    compileOnly 'com.android.tools.build:gradle:3.4.1' //编译时使用，不引入
+    implementation 'com.android.tools.build:gradle:3.4.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+
+buildscript {
+    ext.kotlin_version = '1.3.30'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+sourceSets {
+    main {
+
+        java {
+            srcDir "../builder-lib/src/main/java"
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+repositories {
+    maven { url 'http://172.17.13.128/nexus/repository/google/' }
+    maven { url 'http://172.17.13.128/nexus/repository/jcenter/' }
+    jcenter()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {//用于发布本地maven
+            pom.groupId = "com.qiqi.build"
+            pom.artifactId = "gradle"
+//            pom.version = GRADLE_PLUGIN_VERSION
+            pom.version = "4.0.0"
+            repository(url: uri('c:\\qiqi\\maven'))
+
+//            pom.whenConfigured { pom ->
+//                pom.dependencies.forEach { dep ->
+//                    if (dep.getVersion() == "unspecified") {
+//                        println("--modify the dependenies module in pom.xml--->>" + dep.getArtifactId())
+//                        dep.setGroupId("com.qiqi.buildtest")
+//                        dep.setVersion("2.0.0test")
+//                    }
+//                }
+//            }
+
+        }
+    }
+}

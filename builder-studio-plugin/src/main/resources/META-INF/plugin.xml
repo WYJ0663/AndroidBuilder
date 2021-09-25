@@ -1,0 +1,79 @@
+<idea-plugin>
+    <id>com.qiqi.hot.run.plugin</id>
+    <name>hot run</name>
+    <version>1.0</version>
+    <vendor email="wuyijun26@qq.com" url="http://www.qiqi.com">qiqi</vendor>
+
+    <description><![CDATA[
+      IntelliJ of AndroidStudio plugin for hot run<br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <!--  <idea-version since-build="131"/>-->
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
+
+    <actions>
+        <!-- Add your actions here -->
+
+        <action id="clear.script" class="com.qiqi.ide.action.ClearAction"
+                text="清除增量文件" description="清除增量文件" icon="/clear.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="restart.script" class="com.qiqi.ide.action.RestartAction"
+                text="重启" description="重启" icon="/lcast.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="reset.script" class="com.qiqi.ide.action.ResetAction"
+                text="重置" description="重置" icon="/reset.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="install.script" class="com.qiqi.ide.action.InstallAction"
+                text="安装" description="安装" icon="/install.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="hot.res.script" class="com.qiqi.ide.action.HotResAction"
+                text="增量资源代码" description="增量资源代码" icon="/hot_res.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="hot.script" class="com.qiqi.ide.action.HotAction"
+                text="增量java代码" description="增量java代码" icon="/hot.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+        </action>
+
+        <action id="delete.script" class="com.qiqi.ide.action.DeleteAction"
+                text="清除out文件夹" description="清除out文件夹" icon="/delete.png">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <!--      <add-to-group group-id="ToolbarRunGroup" anchor="last"/>-->
+        </action>
+
+    </actions>
+
+</idea-plugin>

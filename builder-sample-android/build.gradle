@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.qiqi.hot'
+//builder {
+//    applicationName = 'com.qiqi.builder.TestApplication'
+//    applicationAttachName = 'attachBaseContext'
+//    applicationAttachNameIndex = 1
+//}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.qiqi.builder"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            multiDexEnabled true
+//            signingConfig signingConfigs.debug
+            debuggable true
+        }
+        release {
+            multiDexEnabled true
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':builder-sample-android:androidcommon')
+//    implementation project(':hack')//debug isDebugHack
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
+}

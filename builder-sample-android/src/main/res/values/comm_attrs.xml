@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonCornerLayout">
+        <attr name="common_corner_radius" format="dimension" />
+        <attr name="common_skin_color" format="reference|integer" />
+        <attr name="common_corner_radius_top_left" format="dimension" />
+        <attr name="common_corner_radius_top_right" format="dimension" />
+        <attr name="common_corner_radius_bottom_left" format="dimension" />
+        <attr name="common_corner_radius_bottom_right" format="dimension" />
+        <attr name="common_corner_style_full" format="boolean" />
+        <attr name="common_alpha_in_pressed_state" format="float" />
+        <attr name="common_alpha_in_normal_state" format="float" />
+        <attr name="common_corner_radius_clip" format="boolean" />
+        <attr name="common_corner_solid_color" format="reference|color" />
+        <attr name="common_corner_stroke_color" format="reference|color" />
+    </declare-styleable>
+
+</resources>

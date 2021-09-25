@@ -1,0 +1,43 @@
+buildscript {
+    ext.kotlin_version = '1.3.30'
+
+    repositories {
+        maven {
+            url uri("c:\\qiqi\\maven")
+        }
+        mavenLocal()
+        mavenCentral()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.30"
+//        classpath "com.qiqi.build:gradle:$GRADLE_PLUGIN_VERSION"
+//        classpath "com.qiqi.build:gradle:3.0.0"
+    }
+}
+
+subprojects {
+    apply plugin: 'com.qiqi.builder'
+    builder {
+        applicationName = 'com.qiqi.builder.TestApplication#attachBaseContext'
+        monitorResources = ['com.qiqi.builder.DelegateFragment#onDestroy'
+                            , 'android.support.v4.app.FragmentCompat#onDestroy']
+        versionCode = 999999 //apk版本，非必须
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url uri("c:\\qiqi\\maven")
+        }
+        mavenLocal()
+        mavenCentral()
+        google()
+        jcenter()
+    }
+}
+

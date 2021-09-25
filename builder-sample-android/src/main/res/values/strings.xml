@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidBuilder</string>
+
+    <color name="test">#880000</color>
+
+    <color name="test1">#0088FF</color>
+</resources>
