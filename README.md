@@ -1,5 +1,7 @@
 # Builder
 
+gradle插件，增量编译java、kotlin、res。加速开发效率
+
 1、文件说明
 
 [builder-lib] 公共代码
